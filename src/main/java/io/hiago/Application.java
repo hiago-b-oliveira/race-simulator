@@ -1,6 +1,7 @@
 package io.hiago;
 
 import java.util.List;
+import java.util.Objects;
 
 import io.hiago.model.RaceEvent;
 import io.hiago.model.RaceResult;
@@ -17,12 +18,15 @@ public class Application {
     private static RaceOutputBuilderService raceOutputBuilderService = RaceOutputBuilderService.getInstance();
 
     public static void main(String[] args) {
+        if (Objects.nonNull(args) && args.length > 0) {
+            List<RaceEvent> raceEvents = raceEventsLoaderService.loadRaceEvents(args[0]);
+            RaceResult raceResult = raceSimulatorService.generateRaceResultFromEvents(raceEvents);
+            String raceOutput = raceOutputBuilderService.buildOutput(raceResult.getSortedDriversResults(), raceResult.getFastestLap());
 
-        List<RaceEvent> raceEvents = raceEventsLoaderService.loadRaceEvents("/tmp/input");
-        RaceResult raceResult = raceSimulatorService.generateRaceResultFromEvents(raceEvents);
-        String raceOutput = raceOutputBuilderService.buildOutput(raceResult.getSortedDriversResults(), raceResult.getFastestLap());
-
-        log.info(raceOutput);
+            log.info(raceOutput);
+        } else {
+            log.error("File path not provided");
+        }
     }
-    
+
 }
