@@ -1,16 +1,20 @@
 package io.hiago.service;
 
+import static lombok.AccessLevel.PROTECTED;
+
 import java.util.List;
 
-import io.hiago.dao.RaceEventRepository;
+import io.hiago.repository.RaceEventRepository;
 import io.hiago.model.RaceEvent;
+import lombok.NoArgsConstructor;
 
-public class RaceEventsLoader {
+@NoArgsConstructor(access = PROTECTED)
+public class RaceEventsLoaderService {
 
     private RaceEventRepository raceEventRepository = RaceEventRepository.getInstance();
 
-    public static RaceEventsLoader getInstance() {
-        return new RaceEventsLoader();
+    public static RaceEventsLoaderService getInstance() {
+        return new RaceEventsLoaderService();
     }
 
     public List<RaceEvent> loadRaceEvents(String resourceId) {

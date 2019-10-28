@@ -17,4 +17,7 @@ public class RaceEvent {
     private Duration lapTime;
     private BigDecimal lapAvgSpeed;
 
+    public String getDriverCode() {
+        return driver.getCode();
+    }
 }

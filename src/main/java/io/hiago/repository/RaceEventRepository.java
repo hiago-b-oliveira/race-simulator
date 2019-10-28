@@ -1,8 +1,8 @@
-package io.hiago.dao;
+package io.hiago.repository;
 
 import java.util.List;
 
-import io.hiago.dao.impl.FileRaceEventRepository;
+import io.hiago.repository.impl.FileRaceEventRepository;
 import io.hiago.model.RaceEvent;
 
 public interface RaceEventRepository {

@@ -1,4 +1,4 @@
-package io.hiago.dao.impl;
+package io.hiago.repository.impl;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import io.hiago.dao.RaceEventRepository;
+import io.hiago.repository.RaceEventRepository;
 import io.hiago.model.Driver;
 import io.hiago.model.RaceEvent;
 import io.hiago.util.Parsers;
